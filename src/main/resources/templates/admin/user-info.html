@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/" xmlns:form="http://www.w3.org/1999/html"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Info</title>
+</head>
+<body>
+<a th:href="@{/logout}">Logout</a>
+<br>
+<h2 >User Info</h2>
+<br>
+<form action="#" th:method="POST" th:action="@{/admin/saveUser}" th:object="${user}">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{id}"/>
+
+
+    <p><label for="email"></label>
+        <input type="text" th:field="*{email}" id="email" placeholder="Email"/>
+    </p>
+    <p><label for="username"></label>
+        <input type="text" th:field="*{username}" id="username" placeholder="UserName"/>
+    </p>
+    <p><label for="password"></label>
+        <input type="password" th:field="*{password}" id="password" placeholder="Password"/>
+    </p>
+    <p>
+    Roles:
+    <label>ADMIN</label>
+    <input type="checkbox" th:field="*{roles}" th:value="ROLE_ADMIN"/>
+    <label>USER</label>
+    <input type="checkbox" th:field="*{roles}" th:value="ROLE_USER"/>
+    </p>
+    <br>
+    <input type="submit" value="OK">
+</form>
+<br>
+<a th:href="@{/admin/all}">
+    <input type="submit" value="Go Back"/>
+</a>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <a th:href="@{/logout}">Logout</a>
+    <br><br>
+    <form action="#" th:action="@{/templates/user}" th:object="${user}" th:method="GET">
+        <h2>Hello <span th:text="${user.getUsername()}"></span>!</h2>
+        <h3>Your Email: <span th:text="*{email}"></span></h3>
+        <h3>Your Roles: <span th:text="*{roles}"></span></h3>
+    </form>
+</div>
+</body>
+</html>
